@@ -29,6 +29,12 @@ Direct zip download:
 https://github.com/saxenauts/engram-kit/releases/download/v0.1-real-first-two-weeks/engram-kit.zip
 ```
 
+Discord / submission channel:
+
+```text
+https://discord.gg/8F2g6VDD
+```
+
 ## Files
 
 ```text

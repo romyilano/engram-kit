@@ -32,10 +32,11 @@ Use this before sharing the participant kit.
   `https://github.com/saxenauts/engram-kit`
 - [x] Add direct release zip:
   `https://github.com/saxenauts/engram-kit/releases/download/v0.1-real-first-two-weeks/engram-kit.zip`
+- [x] Add Discord or submission channel:
+  `https://discord.gg/8F2g6VDD`
 
 ## Still Needed Before The Event
 
-- [ ] Add Discord or submission channel.
 - [ ] Add QR code or short URL for the presentation.
 - [ ] Decide public resource limits: timeout, disk, RAM, and network/model mode.
 - [ ] Decide whether submissions arrive as PRs, zipped folders, or form uploads.

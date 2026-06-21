@@ -35,13 +35,13 @@ Not gritty. Not neon. Not chibi. Not glossy 3D. Not photorealistic.
 
 | #  | Concept | Narrative purpose | Visual metaphor | Status |
 |----|---------|-------------------|-----------------|--------|
-| 01 | Statelessness | Problem: no memory ⇒ re-solve from scratch | Engy's notebook wipes blank each task | prompt-ready |
-| 02 | Memory modules | The common fix: store & reuse experience | The chest-notebook fills with notes | prompt-ready |
-| 03 | Fixed designs | Limitation: hand-drawn memory can't adapt | A rigid hand-drawn box that breaks on a new task | prompt-ready |
-| 04 | The Meta Agent loop | Core idea: meta-learn the design | Sample → Reflect → Plan → Build → Verify → Evaluate → Archive | prompt-ready |
-| 05 | Code as search space | Designs are code: schema + retrieval + update | Meta Agent writes Engy a new notebook in code | prompt-ready |
-| 06 | The archive | Sample designs + logs to seed new ideas | A glowing wall of drawer-cards with gauges | prompt-ready |
-| 07 | Results | Learned designs win across four worlds, cheaper | Four little worlds; Engy thrives with tailored memory | prompt-ready |
+| 01 | Statelessness | Problem: no memory ⇒ re-solve from scratch | Engy's notebook wipes blank each task | rendered |
+| 02 | Memory modules | The common fix: store & reuse experience | The chest-notebook fills with notes | rendered |
+| 03 | Fixed designs | Limitation: hand-drawn memory can't adapt | A rigid hand-drawn box that breaks on a new task | rendered |
+| 04 | The Meta Agent loop | Core idea: meta-learn the design | Sample → Reflect → Plan → Build → Verify → Evaluate → Archive | rendered |
+| 05 | Code as search space | Designs are code: schema + retrieval + update | Meta Agent writes Engy a new notebook in code | rendered |
+| 06 | The archive | Sample designs + logs to seed new ideas | A glowing wall of drawer-cards with gauges | rendered |
+| 07 | Results | Learned designs win across four worlds, cheaper | Four little worlds; Engy thrives with tailored memory | rendered |
 | 08 | Big picture | Self-improving memory, safely; ENGRAM tie-in | Engy + Sensei look ahead at a road of dated states | prompt-ready |
 
-**Total pages:** 8. Panel art lives in `panels/alma_pageNN.png` (placeholders until generated).
+**Total pages:** 8. Panel art lives in `panels/alma_pageNN.png`. Pages 01–07 rendered; page 08 still placeholder.

@@ -1,0 +1,5 @@
+# JetBrains IDE
+.idea/
+
+# Local Claude Code settings (personal permissions, not shared)
+.claude/settings.local.json

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manga Flipbook — ENGRAM // KIT</title>
+<meta name="description" content="Soft-color educational manga explainers for the ENGRAM Kit reading pack (ALMA and AMA-Bench — two papers on agentic memory).">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="flip">
+
+<div class="flip-top">
+  <a class="back" href="index.html">← ENGRAM Kit</a>
+  <h1 id="book-title">—</h1>
+  <span style="width:90px"></span>
+</div>
+
+<div class="stage">
+
+  <div class="book">
+    <div class="zone prev" id="zone-prev"><span>‹</span></div>
+    <div class="zone next" id="zone-next"><span>›</span></div>
+    <img id="page-img" src="" alt="">
+  </div>
+
+  <aside class="sidebar">
+    <div class="pagenum" id="page-num">PAGE 1 / 8</div>
+    <h2 id="page-title">—</h2>
+    <p class="caption" id="page-caption">—</p>
+    <p class="purpose" id="page-purpose">—</p>
+
+    <div class="controls">
+      <button id="prev">‹ Prev</button>
+      <button id="next">Next ›</button>
+    </div>
+
+    <div class="dots" id="dots"></div>
+    <div class="thumbs" id="thumbs"></div>
+  </aside>
+
+</div>
+
+<p class="hint">Click the page edges · use ← → arrow keys · or pick a page below · switch books with <code>?book=alma</code> / <code>?book=ama-bench</code></p>
+
+<script src="assets/js/flipbook.js"></script>
+</body>
+</html>

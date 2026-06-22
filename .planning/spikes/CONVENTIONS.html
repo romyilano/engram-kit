@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>spikes · ENGRAM // KIT — Explorations</title>
+<style>
+:root{--ink:#0b0b0d;--paper:#f3f1ec;--paper-2:#e7e4dc;--signal:#00e0a4;--signal-deep:#06a079;
+ --stale:#d98a3d;--smoke:#8a8a86;--hairline:rgba(11,11,13,.14);
+ --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+ font-size:1.02rem;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:2.4rem 1.4rem 6rem}
+a{color:var(--signal-deep);text-decoration:none;border-bottom:1px solid rgba(6,160,121,.35)}
+a:hover{background:var(--signal);color:var(--ink);border-bottom-color:var(--signal)}
+.topbar{position:sticky;top:0;z-index:5;background:var(--ink);color:var(--paper);
+ display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.4rem;
+ font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.topbar a{color:var(--smoke);border:0}.topbar a:hover{background:transparent;color:var(--signal)}
+.topbar .mark{color:var(--paper);font-weight:700;letter-spacing:.04em}.topbar .mark b{color:var(--signal)}
+h1{font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-.02em;line-height:1.05;margin:.4rem 0 1rem}
+h2{font-size:1.45rem;letter-spacing:-.01em;margin:2.4rem 0 .8rem;padding-top:1rem;border-top:1px solid var(--hairline)}
+h3{font-size:1.12rem;margin:1.6rem 0 .5rem}h4{font-size:1rem;margin:1.2rem 0 .4rem;color:var(--smoke)}
+p{margin:.7rem 0}ul,ol{margin:.6rem 0 .6rem 1.3rem;padding:0}li{margin:.3rem 0}
+code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:.1rem .35rem;border-radius:2px}
+pre{background:var(--ink);color:var(--paper);padding:1rem 1.1rem;overflow:auto;border-radius:3px;margin:1rem 0;
+ border-left:3px solid var(--signal)}
+pre code{background:none;color:var(--paper);padding:0;font-size:.82rem;line-height:1.5}
+blockquote{margin:1rem 0;padding:.4rem 1rem;border-left:3px solid var(--smoke);color:var(--smoke);font-style:italic}
+hr{border:0;border-top:1px solid var(--hairline);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--hairline);vertical-align:top}
+th{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke);font-weight:700}
+tr:hover td{background:rgba(0,224,164,.06)}
+em{font-style:italic}strong{font-weight:700}
+.label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1.4rem}
+.chip{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;padding:.25rem .6rem;border:1px solid var(--hairline);border-radius:999px;color:var(--smoke)}
+.chip.v{border-color:var(--signal);color:var(--signal-deep);font-weight:700}
+.back{display:inline-block;margin-bottom:1rem;font-family:var(--mono);font-size:.8rem}
+/* hub cards */
+.lead{font-size:1.15rem;color:#33332f;max-width:62ch}
+.cards{display:grid;gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin:2rem 0}
+.card{background:var(--paper);padding:1.4rem 1.3rem;display:grid;gap:.5rem}
+.card .num{font-family:var(--mono);font-size:.72rem;color:var(--smoke);letter-spacing:.1em}
+.card h3{margin:0;font-size:1.35rem}
+.card .val{font-size:.78rem;line-height:1.5;color:#3a3a36}
+.card .links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+.card .links a{font-family:var(--mono);font-size:.78rem;border:1px solid var(--hairline);
+ padding:.4rem .8rem;border-radius:3px;color:var(--ink)}
+.card .links a.demo{background:var(--signal);border-color:var(--signal);font-weight:700}
+.card .links a.demo:hover{background:var(--ink);color:var(--signal)}
+.card .links a:hover{background:var(--ink);color:var(--paper)}
+.footlinks{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.82rem}
+</style></head><body>
+<div class="topbar"><span class="mark">ENGRAM<b>//</b>KIT</span><span>EXPLORATIONS · INTERNAL</span></div>
+<div class="wrap"><a class="back" href="index.html">← all explorations</a>
+<h1>Spike Conventions</h1>
+<p>Patterns and stack choices established across spike sessions. New spikes follow these unless the question requires otherwise.</p>
+<h2>Stack</h2>
+<ul>
+<li><strong>Vanilla HTML/CSS/JS, zero dependencies, no build step.</strong> Every spike is a single <code>.html</code> file (plus optional Node <code>.js</code> tooling) that opens via <code>file://</code>. This matches the project's <code>docs/</code> static site and its GitHub Pages deployment — no npm, no bundler, no framework.</li>
+<li><strong>Node</strong> (v24) for content tooling only (parsing/codegen), never as a runtime dependency of the playable artifact.</li>
+<li>Rationale: the real target is a GitHub Pages add-on next to the existing flipbook. Anything that needs a build contradicts that. Locked in Spike 001 (build-vs-buy survey rejected Monogatari / Twine / Ren'Py for this reason).</li>
+</ul>
+<h2>Structure</h2>
+<ul>
+<li>One directory per spike: <code>.planning/spikes/NNN-name/</code>.</li>
+<li>Playable demo is always <code>index.html</code> (or <code>play.html</code> when a generator feeds it).</li>
+<li>VN backgrounds reference the real shipped panels by relative path: <code>../../../docs/manga/&amp;lt;book&amp;gt;/panels/&amp;lt;book-prefix&amp;gt;_pageNN.png</code> (three levels up from the spike dir). ALMA prefix <code>alma_</code>, AMA-Bench prefix <code>amabench_</code>.</li>
+<li>Generated content is emitted as a <code>window</code> global in a <code>script.js</code> (<code>window.VN_SCRIPT = […]</code>) so the player loads it with <code>&amp;lt;script src&amp;gt;</code> — avoids <code>file://</code> fetch/CORS entirely. JSON twins (<code>script.json</code>) are written alongside as the human-readable proof artifact.</li>
+</ul>
+<h2>Patterns</h2>
+<ul>
+<li><strong>VN script = flat array of nodes.</strong> <code>{bg, speaker, text}</code> for lines; <code>{choice}</code> / <code>{tag}</code> / <code>{goto}</code> for branching; <code>{quiz}</code> for comprehension checkpoints; <code>{end}</code>. The engine walks the array; branching jumps by tag. ~250 lines of JS total for the full runner.</li>
+<li><strong>Typewriter that preserves markup:</strong> tokenize on <code>/(&amp;lt;[^&amp;gt;]+&amp;gt;)/</code>, emit whole tags in one step and text char-by-char, so <code>&amp;lt;em&amp;gt;</code> (green emphasis) survives the reveal.</li>
+<li><strong>Brand-native learning cue:</strong> backgrounds sit desaturated/dim at rest and warm to full color on "it-worked / recall" beats (the <code>lit</code> flag) — reusing the brand's "near-grayscale → full tone on hover" rule as an emotional/learning signal.</li>
+<li><strong>Diegetic checkpoints:</strong> quizzes are administered by an in-world character (the <strong>Examiner</strong>), with per-distractor corrective feedback and retry — never a generic modal popup. Wrong answers block advance but teach; first-try-correct vs. total-attempts is the mastery signal.</li>
+<li><strong>Speaker name plates by role:</strong> green skewed plate for characters, amber (<code>--stale</code>) for the Examiner, paper-white for the Meta Agent, quiet uppercase label for narration/captions.</li>
+<li><strong>Forensic log layer in every interactive spike:</strong> <code>LOG[]</code> with seconds-since-load timestamps, category tags, an on-screen toggle, and an <strong>export</strong> button that downloads JSON with a summary (event counts, duration, and — for learning spikes — a <code>{checkpoints, passed, firstTryCorrect, totalAttempts}</code> block).</li>
+</ul>
+<h2>Tools &amp; Libraries</h2>
+<ul>
+<li><strong>None.</strong> No runtime packages. Brand tokens are copied inline from <code>docs/BRAND.md</code> (<code>--ink #0b0b0d</code>, <code>--paper #f3f1ec</code>, <code>--signal #00e0a4</code>, <code>--stale #d98a3d</code>, Helvetica, mono for labels/commands). Keep the palette and the <code>//</code> mark consistent with the site.</li>
+<li>Content source of truth for dialogue: <code>documentation/manga/&amp;lt;book&amp;gt;/page-NN.md</code> <code>Lettering:</code> blocks. Authoring convention to preserve lossless extraction: <strong>one utterance per <code>- Panel N — Speaker:</code> bullet</strong> (avoid packing two speakers into one line).</li>
+</ul>
+</div></body></html>

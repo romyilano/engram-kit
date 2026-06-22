@@ -81,3 +81,23 @@ ENGRAM only requires that your system can:
 - cite evidence paths;
 - handle stale, current, superseded, and uncertain information;
 - run without manual intervention through the two-command interface.
+
+## Explorations & Spikes (internal)
+
+An internal site of experiential spikes exploring a **visual-novel learning game** built
+around the ENGRAM papers (ALMA & AMA-Bench). Each spike is a runnable, zero-dependency demo
+plus a writeup. Open the hub, or jump straight to a demo:
+
+**▶ [Explorations hub](.planning/spikes/index.html)** — links every spike's demo + writeup
+
+| # | Spike | Verdict | Demo | Writeup |
+|---|-------|---------|------|---------|
+| 001 | VN engine feel — panels + typewriter + branching, zero build | ✓ VALIDATED | [play](.planning/spikes/001-vn-engine-feel/index.html) | [read](.planning/spikes/001-vn-engine-feel/README.html) |
+| 002 | Learning loop — Examiner comprehension checkpoints | ✓ VALIDATED | [play](.planning/spikes/002-learning-loop/index.html) | [read](.planning/spikes/002-learning-loop/README.html) |
+| 003 | Dialogue pipeline — auto-extract a VN script from the manga | ✓ VALIDATED | [play](.planning/spikes/003-dialogue-pipeline/play.html) | [read](.planning/spikes/003-dialogue-pipeline/README.html) |
+
+Also: [Manifest](.planning/spikes/MANIFEST.html) · [Conventions](.planning/spikes/CONVENTIONS.html).
+Regenerate the site after editing any spike with `node .planning/spikes/build-site.js`.
+
+> The demos open directly via `file://` (no server). The HTML pages are generated from the
+> spike markdown and committed for convenience.

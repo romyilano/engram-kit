@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>spikes · ENGRAM // KIT — Explorations</title>
+<style>
+:root{--ink:#0b0b0d;--paper:#f3f1ec;--paper-2:#e7e4dc;--signal:#00e0a4;--signal-deep:#06a079;
+ --stale:#d98a3d;--smoke:#8a8a86;--hairline:rgba(11,11,13,.14);
+ --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+ font-size:1.02rem;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:2.4rem 1.4rem 6rem}
+a{color:var(--signal-deep);text-decoration:none;border-bottom:1px solid rgba(6,160,121,.35)}
+a:hover{background:var(--signal);color:var(--ink);border-bottom-color:var(--signal)}
+.topbar{position:sticky;top:0;z-index:5;background:var(--ink);color:var(--paper);
+ display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.4rem;
+ font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.topbar a{color:var(--smoke);border:0}.topbar a:hover{background:transparent;color:var(--signal)}
+.topbar .mark{color:var(--paper);font-weight:700;letter-spacing:.04em}.topbar .mark b{color:var(--signal)}
+h1{font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-.02em;line-height:1.05;margin:.4rem 0 1rem}
+h2{font-size:1.45rem;letter-spacing:-.01em;margin:2.4rem 0 .8rem;padding-top:1rem;border-top:1px solid var(--hairline)}
+h3{font-size:1.12rem;margin:1.6rem 0 .5rem}h4{font-size:1rem;margin:1.2rem 0 .4rem;color:var(--smoke)}
+p{margin:.7rem 0}ul,ol{margin:.6rem 0 .6rem 1.3rem;padding:0}li{margin:.3rem 0}
+code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:.1rem .35rem;border-radius:2px}
+pre{background:var(--ink);color:var(--paper);padding:1rem 1.1rem;overflow:auto;border-radius:3px;margin:1rem 0;
+ border-left:3px solid var(--signal)}
+pre code{background:none;color:var(--paper);padding:0;font-size:.82rem;line-height:1.5}
+blockquote{margin:1rem 0;padding:.4rem 1rem;border-left:3px solid var(--smoke);color:var(--smoke);font-style:italic}
+hr{border:0;border-top:1px solid var(--hairline);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--hairline);vertical-align:top}
+th{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke);font-weight:700}
+tr:hover td{background:rgba(0,224,164,.06)}
+em{font-style:italic}strong{font-weight:700}
+.label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1.4rem}
+.chip{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;padding:.25rem .6rem;border:1px solid var(--hairline);border-radius:999px;color:var(--smoke)}
+.chip.v{border-color:var(--signal);color:var(--signal-deep);font-weight:700}
+.back{display:inline-block;margin-bottom:1rem;font-family:var(--mono);font-size:.8rem}
+/* hub cards */
+.lead{font-size:1.15rem;color:#33332f;max-width:62ch}
+.cards{display:grid;gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin:2rem 0}
+.card{background:var(--paper);padding:1.4rem 1.3rem;display:grid;gap:.5rem}
+.card .num{font-family:var(--mono);font-size:.72rem;color:var(--smoke);letter-spacing:.1em}
+.card h3{margin:0;font-size:1.35rem}
+.card .val{font-size:.78rem;line-height:1.5;color:#3a3a36}
+.card .links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+.card .links a{font-family:var(--mono);font-size:.78rem;border:1px solid var(--hairline);
+ padding:.4rem .8rem;border-radius:3px;color:var(--ink)}
+.card .links a.demo{background:var(--signal);border-color:var(--signal);font-weight:700}
+.card .links a.demo:hover{background:var(--ink);color:var(--signal)}
+.card .links a:hover{background:var(--ink);color:var(--paper)}
+.footlinks{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.82rem}
+</style></head><body>
+<div class="topbar"><span class="mark">ENGRAM<b>//</b>KIT</span><span>EXPLORATIONS · INTERNAL</span></div>
+<div class="wrap"><a class="back" href="index.html">← all explorations</a>
+<h1>Spike Manifest</h1>
+<h2>Idea</h2>
+<p>Explore building a <strong>visual-novel game around the ENGRAM papers (ALMA &amp; AMA-Bench) for learning</strong>. The repo already ships those papers as soft-color manga panels (15 pages), an ENGRAM // KIT brand, and a passive flipbook. A <em>learning</em> visual novel must earn its place over the flipbook with interactivity — typewriter dialogue over panel backgrounds, branching choices, and comprehension checkpoints where Engy/Sensei give in-character corrective feedback. Target stack matches the existing <code>docs/</code> static site: zero-dependency vanilla HTML/CSS/JS, runnable by opening a file, deployable to GitHub Pages.</p>
+<h2>Requirements</h2>
+<p>Design decisions locked in during spiking. Non-negotiable for the real build.</p>
+<ul>
+<li>Hand-rolled, <strong>zero-dependency vanilla JS</strong> VN runner (no Monogatari/Twine/Ren'Py) — matches the <code>docs/</code> static site, no build step, full ENGRAM // KIT brand control.</li>
+<li>Reuse existing assets: manga panel PNGs as scene backgrounds, the brand palette (recall-green <code>#00e0a4</code>, ink, Helvetica, mono labels), and the existing cast (Engy, Sensei, Examiner).</li>
+<li>The VN must add <strong>interactive learning</strong> (choices + comprehension checkpoints), not just replay the flipbook.</li>
+</ul>
+<h2>Spikes</h2>
+<table><thead><tr><th>#</th><th>Name</th><th>Type</th><th>Validates</th><th>Verdict</th><th>Tags</th></tr></thead><tbody><tr><td>001</td><td>vn-engine-feel</td><td>standard</td><td>Vanilla-JS VN scene (panel bg, typewriter dialogue, click-advance, branching choice) feels like a real VN and fits the static site, zero build</td><td>✓ VALIDATED</td><td>vn, ui, brand, static-site</td></tr><tr><td>002</td><td>learning-loop</td><td>standard</td><td>Comprehension checkpoints with in-character corrective feedback reinforce the paper concept better than passive reading</td><td>✓ VALIDATED</td><td>vn, pedagogy, quiz, learning</td></tr><tr><td>003</td><td>dialogue-pipeline</td><td>standard</td><td>Existing <code>page-NN.md</code> "Panel N — Speaker: line" blocks auto-parse into a structured VN script, so authoring isn't from scratch</td><td>✓ VALIDATED</td><td>pipeline, parsing, content, authoring</td></tr></tbody></table>
+</div></body></html>

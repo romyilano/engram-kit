@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>learning-loop · ENGRAM // KIT — Explorations</title>
+<style>
+:root{--ink:#0b0b0d;--paper:#f3f1ec;--paper-2:#e7e4dc;--signal:#00e0a4;--signal-deep:#06a079;
+ --stale:#d98a3d;--smoke:#8a8a86;--hairline:rgba(11,11,13,.14);
+ --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+ font-size:1.02rem;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:2.4rem 1.4rem 6rem}
+a{color:var(--signal-deep);text-decoration:none;border-bottom:1px solid rgba(6,160,121,.35)}
+a:hover{background:var(--signal);color:var(--ink);border-bottom-color:var(--signal)}
+.topbar{position:sticky;top:0;z-index:5;background:var(--ink);color:var(--paper);
+ display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.4rem;
+ font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.topbar a{color:var(--smoke);border:0}.topbar a:hover{background:transparent;color:var(--signal)}
+.topbar .mark{color:var(--paper);font-weight:700;letter-spacing:.04em}.topbar .mark b{color:var(--signal)}
+h1{font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-.02em;line-height:1.05;margin:.4rem 0 1rem}
+h2{font-size:1.45rem;letter-spacing:-.01em;margin:2.4rem 0 .8rem;padding-top:1rem;border-top:1px solid var(--hairline)}
+h3{font-size:1.12rem;margin:1.6rem 0 .5rem}h4{font-size:1rem;margin:1.2rem 0 .4rem;color:var(--smoke)}
+p{margin:.7rem 0}ul,ol{margin:.6rem 0 .6rem 1.3rem;padding:0}li{margin:.3rem 0}
+code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:.1rem .35rem;border-radius:2px}
+pre{background:var(--ink);color:var(--paper);padding:1rem 1.1rem;overflow:auto;border-radius:3px;margin:1rem 0;
+ border-left:3px solid var(--signal)}
+pre code{background:none;color:var(--paper);padding:0;font-size:.82rem;line-height:1.5}
+blockquote{margin:1rem 0;padding:.4rem 1rem;border-left:3px solid var(--smoke);color:var(--smoke);font-style:italic}
+hr{border:0;border-top:1px solid var(--hairline);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--hairline);vertical-align:top}
+th{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke);font-weight:700}
+tr:hover td{background:rgba(0,224,164,.06)}
+em{font-style:italic}strong{font-weight:700}
+.label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1.4rem}
+.chip{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;padding:.25rem .6rem;border:1px solid var(--hairline);border-radius:999px;color:var(--smoke)}
+.chip.v{border-color:var(--signal);color:var(--signal-deep);font-weight:700}
+.back{display:inline-block;margin-bottom:1rem;font-family:var(--mono);font-size:.8rem}
+/* hub cards */
+.lead{font-size:1.15rem;color:#33332f;max-width:62ch}
+.cards{display:grid;gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin:2rem 0}
+.card{background:var(--paper);padding:1.4rem 1.3rem;display:grid;gap:.5rem}
+.card .num{font-family:var(--mono);font-size:.72rem;color:var(--smoke);letter-spacing:.1em}
+.card h3{margin:0;font-size:1.35rem}
+.card .val{font-size:.78rem;line-height:1.5;color:#3a3a36}
+.card .links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+.card .links a{font-family:var(--mono);font-size:.78rem;border:1px solid var(--hairline);
+ padding:.4rem .8rem;border-radius:3px;color:var(--ink)}
+.card .links a.demo{background:var(--signal);border-color:var(--signal);font-weight:700}
+.card .links a.demo:hover{background:var(--ink);color:var(--signal)}
+.card .links a:hover{background:var(--ink);color:var(--paper)}
+.footlinks{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.82rem}
+</style></head><body>
+<div class="topbar"><span class="mark">ENGRAM<b>//</b>KIT</span><span>EXPLORATIONS · INTERNAL</span></div>
+<div class="wrap"><a class="back" href="../index.html">← all explorations</a>
+<div class="meta"><span class="chip">SPIKE 002</span><span class="chip">standard</span><span class="chip v">VALIDATED</span><span class="chip">vn, pedagogy, quiz, learning</span></div><h1>Spike 002: Learning Loop</h1>
+<h2>What This Validates</h2>
+<p>This is the spike that decides whether the whole idea is worth building. The flipbook already shows panels + captions. <strong>When</strong> a player hits a comprehension checkpoint — the <em>Examiner</em> (AMA-Bench personified) asks a question, a wrong answer triggers in-character corrective feedback and a retry, a right answer lights up Engy's notebook and advances — <strong>then</strong> the player has to <em>apply</em> the concept, not just read it. That retrieval-plus-feedback loop is the pedagogical reason a VN beats a passive flipbook.</p>
+<h2>Research</h2>
+<p>No new external libraries (builds on the Spike 001 vanilla engine). The pedagogy is grounded in two well-established findings, applied here deliberately:</p>
+<ul>
+<li><strong>Retrieval practice (the testing effect):</strong> being asked to recall/apply a concept produces stronger retention than re-reading it.</li>
+<li><strong>Corrective feedback:</strong> a wrong answer that explains <em>why</em> it's wrong (and is immediately retryable) turns an error into a learning event instead of a dead end.</li>
+</ul>
+<p>Content is drawn from real AMA-Bench material — the "memory is a causal trajectory, not a conversation" thesis and the four question categories (temporal, state-dependency, memory-updating, summarization) from the character sheet and <code>page-NN.md</code> files. The <strong>Examiner</strong> character already exists in the cast specifically to "administer the benchmark and reveal where memory breaks" — so the quiz-master role is brand-native, not bolted on.</p>
+<h2>How to Run</h2>
+<pre><code>open .planning/spikes/002-learning-loop/index.html</code></pre>
+<p>Read the two setup lines, then answer the Examiner's checkpoint. <strong>Deliberately pick a wrong answer first</strong> to see the corrective feedback + retry, then pick the right one to see the notebook light up and the mastery dot fill. Two checkpoints; the end card shows your learning stats. Top-right <strong>export</strong> includes a <code>learning</code> summary in the JSON.</p>
+<h2>What to Expect</h2>
+<ul>
+<li>Two AMA-Bench checkpoints administered by the <strong>Examiner</strong> (amber name plate, distinct from the green character plates).</li>
+<li>Wrong answer → that option greys/ambers out, an amber "Examiner ✗" feedback box explains the misconception, and you can still pick another option (no penalty, just learning).</li>
+<li>Right answer → green "Examiner ✓" confirmation, a recall-green flash, the background warms, and a mastery dot fills in the HUD.</li>
+<li>End card with <strong>checkpoints passed / first-try correct / total attempts</strong> — the signal that separates "recognized" from "mastered".</li>
+</ul>
+<h2>Observability</h2>
+<p>Forensic log records every <code>checkpoint-shown</code>, each <code>answer</code> (✓/✗ with try number and whether it was a first-try correct), <code>line</code>, <code>end</code>, <code>replay</code>. Wrong answers are tagged <code>bad</code> in the on-screen log. <strong>Export</strong> embeds a <code>learning</code> block: <code>{checkpoints, passed, firstTryCorrect, totalAttempts}</code> — the exact telemetry a real build would use to measure whether a scene is teaching.</p>
+<h2>Investigation Trail</h2>
+<ol>
+<li><strong>Framing the checkpoint as a character, not a popup.</strong> First instinct was a generic quiz modal. Rejected — it would break the VN fiction. Used the existing <strong>Examiner</strong> persona so the question <em>is</em> the story beat. The amber name-plate (the brand's <code>--stale</code> token, reserved for stale/superseded info) doubles as the "you're being tested" signal.</li>
+<li><strong>Wrong answers must not end the scene.</strong> Early version advanced on any click. That punishes exploration and kills the learning value. Reworked so an unanswered/incorrect checkpoint <em>blocks</em> advance — you stay until you get it right — but each wrong attempt yields specific corrective feedback keyed to that misconception (not a generic "try again").</li>
+<li><strong>Distractors had to be plausible-wrong, not silly.</strong> For the memory-updating question, the tempting wrong answer is <em>temporal</em> ("before… last changed" sounds like time-ordering). The feedback explicitly disambiguates the two AMA-Bench categories — so even a wrong click teaches the distinction. That's the moment passive reading can't reproduce.</li>
+<li><strong>Measuring learning.</strong> Added first-try-correct vs. total-attempts tracking. Simulated a q1-right / q2-wrong-then-right run headlessly: <code>passed 2/2, firstTryCorrect 1/2, totalAttempts 3</code> — confirming the metric distinguishes "knew it" from "figured it out after feedback", which is the data a real build needs to tune difficulty.</li>
+</ol>
+<h2>Results</h2>
+<p><strong>Verdict: VALIDATED</strong> (loop logic + stat tracking verified headlessly; the felt pedagogical punch is a human playtest — open the file and miss one on purpose).</p>
+<ul>
+<li>The comprehension checkpoint is a small extension of the Spike 001 engine — a <code>{quiz}</code> node slotted where 001 had a flavor <code>{choice}</code> node. <strong>The learning loop is cheap once the VN exists.</strong></li>
+<li>The Examiner persona makes the quiz diegetic: it reads as a story confrontation, not a pop quiz, which is exactly what a <em>narrative</em> learning game needs.</li>
+<li>Corrective feedback keyed to each distractor means <strong>wrong answers teach</strong> — the single biggest edge over the flipbook, which can only show the right answer.</li>
+<li>First-try-correct vs. attempts is a usable mastery signal and exports cleanly for telemetry.</li>
+<li><strong>Carries forward:</strong> the real build should author 1–2 checkpoints per paper concept, always diegetic (Examiner / Sensei), always with per-distractor feedback. <strong>Open question for the real build:</strong> how many checkpoints per page before it feels like a test instead of a story — a tuning question, not a feasibility one.</li>
+</ul>
+</div></body></html>

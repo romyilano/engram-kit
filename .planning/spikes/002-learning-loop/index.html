@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spike 002 — Learning Loop · ENGRAM // KIT</title>
+<style>
+  :root{
+    --ink:#0b0b0d; --paper:#f3f1ec; --signal:#00e0a4; --signal-deep:#06a079;
+    --stale:#d98a3d; --smoke:#8a8a86; --hairline:rgba(255,255,255,.16);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace; --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--ink);color:var(--paper);font-family:var(--sans);display:grid;place-items:center;min-height:100%;overflow:hidden}
+  #stage{position:relative;width:min(96vw,1100px);aspect-ratio:16/9;background:#000;overflow:hidden;border:1px solid var(--hairline);user-select:none}
+  #bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(.55) brightness(.6);transition:filter .6s}
+  #bg.lit{filter:grayscale(0) brightness(.92)}
+  #flash{position:absolute;inset:0;background:var(--signal);opacity:0;pointer-events:none;transition:opacity .12s}
+  #flash.on{opacity:.22}
+  #scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.15),rgba(11,11,13,.05) 42%,rgba(11,11,13,.93))}
+  #hud{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:.7rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke)}
+  #hud .mark{color:var(--paper);font-weight:700}#hud .mark b{color:var(--signal)}
+  #mastery{font-family:var(--mono);letter-spacing:.08em}
+  #mastery .dot{display:inline-block;width:.6rem;height:.6rem;border:1px solid var(--smoke);border-radius:50%;margin-left:.3rem;vertical-align:middle}
+  #mastery .dot.done{background:var(--signal);border-color:var(--signal)}
+  #name{position:absolute;left:5%;bottom:32%;padding:.35rem 1rem;background:var(--signal);color:var(--ink);font-weight:700;font-size:1.05rem;transform:skewX(-6deg);opacity:0;transition:opacity .15s}
+  #name span{display:inline-block;transform:skewX(6deg)}#name.show{opacity:1}
+  #name.examiner{background:var(--stale)}
+  #name.narrator{background:transparent;color:var(--smoke);font-weight:400;letter-spacing:.22em;text-transform:uppercase;font-size:.62rem;transform:none}
+  #name.narrator span{transform:none}
+  #box{position:absolute;left:5%;right:5%;bottom:8%;min-height:22%;border-top:1px solid var(--hairline);padding:1.1rem .2rem 0}
+  #line{font-size:clamp(1rem,2.2vw,1.45rem);line-height:1.5;max-width:64ch}
+  #line em{color:var(--signal);font-style:normal}
+  #advance{position:absolute;right:5%;bottom:8%;color:var(--smoke);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+  #advance b{color:var(--signal)}
+  /* quiz */
+  #quiz{position:absolute;left:5%;right:5%;bottom:7%;display:none;flex-direction:column;gap:.45rem}
+  #qprompt{font-size:clamp(1rem,2.1vw,1.35rem);line-height:1.45;margin-bottom:.3rem}
+  #qprompt .by{display:block;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--stale);margin-bottom:.3rem}
+  .opt{text-align:left;background:rgba(243,241,236,.06);color:var(--paper);border:1px solid var(--hairline);border-left:3px solid var(--smoke);padding:.7rem 1rem;font-family:var(--sans);font-size:.98rem;cursor:pointer;transition:background .15s,border-color .2s,transform .1s}
+  .opt:hover{background:rgba(243,241,236,.12);transform:translateX(3px)}
+  .opt.wrong{border-left-color:var(--stale);background:rgba(217,138,61,.14);opacity:.6;cursor:not-allowed}
+  .opt.right{border-left-color:var(--signal);background:rgba(0,224,164,.18)}
+  #feedback{display:none;margin-top:.2rem;padding:.6rem .8rem;border-left:3px solid var(--stale);background:rgba(217,138,61,.1);font-size:.92rem;line-height:1.5}
+  #feedback.good{border-left-color:var(--signal);background:rgba(0,224,164,.12)}
+  #feedback .who{font-weight:700;color:var(--stale);margin-right:.4rem}#feedback.good .who{color:var(--signal-deep)}
+  #end{position:absolute;inset:0;display:none;place-items:center;text-align:center;background:rgba(11,11,13,.9);flex-direction:column;gap:.8rem;padding:2rem}
+  #end h2{font-size:clamp(1.4rem,4vw,2.2rem);letter-spacing:-.02em}
+  #stats{font-family:var(--mono);font-size:.85rem;color:var(--paper);line-height:1.9}
+  #stats .n{color:var(--signal)}#end .sub{color:var(--smoke);max-width:48ch;line-height:1.6;font-size:.95rem}
+  button.act{background:var(--signal);color:var(--ink);border:0;font-weight:700;padding:.7rem 1.4rem;font-family:var(--sans);cursor:pointer}
+  button.ghost{background:transparent;color:var(--smoke);border:1px solid var(--hairline);padding:.5rem .9rem;cursor:pointer;font-family:var(--mono);font-size:.72rem}
+  #logbar{position:fixed;top:.6rem;right:.8rem;display:flex;gap:.4rem;z-index:5}
+  #log{position:fixed;right:.8rem;top:2.8rem;width:min(92vw,400px);max-height:62vh;overflow:auto;background:#0e0e12;border:1px solid var(--hairline);padding:.6rem .7rem;display:none;font-family:var(--mono);font-size:.66rem;line-height:1.5;color:var(--smoke);z-index:5}
+  #log .t{color:var(--signal-deep)}#log .c{color:var(--paper)}#log .bad{color:var(--stale)}
+</style>
+</head>
+<body>
+<div id="logbar"><button class="ghost" id="toggleLog">log</button><button class="ghost" id="exportLog">export</button></div>
+<div id="log"></div>
+<div id="stage">
+  <div id="bg"></div><div id="flash"></div><div id="scrim"></div>
+  <div id="hud"><span class="mark">ENGRAM<b>//</b>KIT</span><span id="mastery">MASTERY</span></div>
+  <div id="name"><span></span></div>
+  <div id="box"><div id="line"></div></div>
+  <div id="advance">click / <b>space</b> ▸</div>
+  <div id="quiz">
+    <div id="qprompt"></div>
+    <div id="opts"></div>
+    <div id="feedback"></div>
+  </div>
+  <div id="end">
+    <h2>Checkpoint passed.</h2>
+    <div id="stats"></div>
+    <p class="sub">A wrong answer didn't end the scene — the Examiner explained <em>why</em>, in
+      character, and you tried again. Retrieval + corrective feedback is what makes this a learning
+      game, not a slideshow. The stats above are the signal the real build would track.</p>
+    <button class="act" id="replay">Replay</button>
+  </div>
+</div>
+<script>
+/* ---------- forensic log ---------- */
+const LOG=[],t0=Date.now();
+function log(cat,msg,meta,bad){const e={t:((Date.now()-t0)/1000).toFixed(2),cat,msg,meta:meta||null};LOG.push(e);
+  document.getElementById('log').insertAdjacentHTML('beforeend',`<div><span class="t">${e.t}s</span> <span class="${bad?'bad':'c'}">[${cat}]</span> ${msg}</div>`);
+  const l=document.getElementById('log');l.scrollTop=l.scrollHeight;}
+document.getElementById('toggleLog').onclick=()=>{const l=document.getElementById('log');l.style.display=l.style.display==='block'?'none':'block';};
+document.getElementById('exportLog').onclick=()=>{
+  const counts=LOG.reduce((a,e)=>(a[e.cat]=(a[e.cat]||0)+1,a),{});
+  const blob=new Blob([JSON.stringify({summary:{events:LOG.length,durationS:((Date.now()-t0)/1000).toFixed(1),counts,learning:stats()},events:LOG},null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='spike002-log.json';a.click();log('export','log exported');
+};
+
+/* ---------- content: real AMA-Bench concepts ---------- */
+const P='../../../docs/manga/ama-bench/panels/';
+const SCRIPT=[
+ {bg:'amabench_page01.png',s:null,t:"<em>Testing a Memory</em> — an AMA-Bench learning checkpoint."},
+ {bg:'amabench_page02.png',s:'sensei',t:"Real agent memory isn't a chat log. It's a <em>causal trajectory</em> — states, actions, observations, tool outputs, linked nose-to-tail."},
+ {bg:'amabench_page02.png',s:'engy',t:"Dense and objective — no small talk to wade through. Each step caused the next."},
+ // ---- CHECKPOINT 1 (concept: trajectory, not conversation) ----
+ {quiz:{id:'q1', by:'The Examiner · STATE-DEPENDENCY',
+   q:"AMA-Bench scores an agent's memory over <em>what</em>?",
+   options:[
+     {t:"A friendly back-and-forth chat history", correct:false,
+      fb:"Not quite. That's a conversation. Agent memory under test is machine-generated and <em>causal</em> — states, actions, observations — not chit-chat. Look again."},
+     {t:"A causal trajectory of states, actions & observations", correct:true,
+      fb:"Exactly. The record IS the trajectory. That's the only fair thing to test a long-horizon agent on."},
+     {t:"A single prompt and its one response", correct:false,
+      fb:"Too small. 'Long-horizon' means many steps over a long road — one prompt can't probe memory across a journey."}
+   ]}},
+ {bg:'amabench_page04.png',s:'sensei',t:"The Examiner asks four kinds of question: <em>temporal, state-dependency, memory-updating, summarization.</em>"},
+ {bg:'amabench_page04.png',s:'engy',t:"Four ways memory can break. Each card tests a different skill."},
+ // ---- CHECKPOINT 2 (concept: memory-updating category) ----
+ {quiz:{id:'q2', by:'The Examiner · MEMORY-UPDATING',
+   q:"\"What was the config value <em>before</em> you last changed it?\" — which skill does this probe?",
+   options:[
+     {t:"Summarization — compressing the whole journey", correct:false,
+      fb:"No — nothing here asks for a summary. It asks you to recover a <em>prior</em> value across an overwrite."},
+     {t:"Memory-updating — tracking values across changes", correct:true,
+      fb:"Right. When a value is overwritten you must still recall the old one. That's the memory-updating skill — the classic place memory fails."},
+     {t:"Temporal — ordering events in time", correct:false,
+      fb:"Close, but temporal is about <em>when</em> / ordering. Here the value was overwritten — the test is whether the update was tracked, not merely time order."}
+   ]}},
+ {bg:'amabench_page06.png',s:'sensei',t:"Pass these and you don't just <em>recognize</em> the ideas — you can <em>apply</em> them. That's the difference a checkpoint makes.",lit:true},
+ {end:true}
+];
+
+/* ---------- engine ---------- */
+const bg=document.getElementById('bg'),flash=document.getElementById('flash'),nameEl=document.getElementById('name'),
+ lineEl=document.getElementById('line'),boxEl=document.getElementById('box'),advanceEl=document.getElementById('advance'),
+ quizEl=document.getElementById('quiz'),optsEl=document.getElementById('opts'),qpromptEl=document.getElementById('qprompt'),
+ feedbackEl=document.getElementById('feedback'),endEl=document.getElementById('end'),masteryEl=document.getElementById('mastery'),stage=document.getElementById('stage');
+const NAMES={engy:'ENGY',sensei:'SENSEI'};
+const QUIZZES=SCRIPT.filter(n=>n.quiz).map(n=>n.quiz.id);
+const attempts={}; // id -> {tries, firstTry}
+let i=0,typing=false,full='',timer=null;
+
+function stats(){
+ const ids=Object.keys(attempts);
+ const firstTry=ids.filter(id=>attempts[id].firstTry).length;
+ const totalTries=ids.reduce((a,id)=>a+attempts[id].tries,0);
+ return {checkpoints:QUIZZES.length, passed:ids.length, firstTryCorrect:firstTry, totalAttempts:totalTries};
+}
+function renderMastery(){
+ const passed=Object.keys(attempts).length;
+ masteryEl.innerHTML='MASTERY'+QUIZZES.map((id)=>`<span class="dot${attempts[id]?' done':''}"></span>`).join('');
+}
+function setBg(src,lit){ if(src) bg.style.backgroundImage=`url('${P}${src}')`; bg.classList.toggle('lit',!!lit); }
+function reward(){ flash.classList.add('on'); setTimeout(()=>flash.classList.remove('on'),140); }
+
+function typeOut(html){ typing=true; full=html; lineEl.innerHTML='';
+ const tokens=html.split(/(<[^>]+>)/); const queue=[];
+ tokens.forEach(tok=>{ if(tok.startsWith('<')) queue.push({tag:tok}); else for(const ch of tok) queue.push({ch}); });
+ let k=0,out='';
+ (function step(){ if(k>=queue.length){typing=false;lineEl.innerHTML=full;return;} const q=queue[k++];
+   out+=q.tag||q.ch; lineEl.innerHTML=out+'<span style="color:var(--signal)">▌</span>'; timer=setTimeout(step,q.tag?0:16); })();
+}
+function finishTyping(){ if(typing){clearTimeout(timer);typing=false;lineEl.innerHTML=full;return true;} return false; }
+
+function showLine(n){
+ boxEl.style.display='block';advanceEl.style.display='block';quizEl.style.display='none';
+ setBg(n.bg,n.lit);
+ if(n.s){nameEl.className='show';nameEl.querySelector('span').textContent=NAMES[n.s];}
+ else{nameEl.className='show narrator';nameEl.querySelector('span').textContent='NARRATION';}
+ typeOut(n.t); log('line',(n.s||'narrator')+': '+n.t.replace(/<[^>]+>/g,''));
+}
+
+function showQuiz(qz){
+ finishTyping(); boxEl.style.display='none'; advanceEl.style.display='none'; nameEl.className='';
+ quizEl.style.display='flex'; feedbackEl.style.display='none'; feedbackEl.className='';
+ qpromptEl.innerHTML=`<span class="by">${qz.by}</span>${qz.q}`;
+ optsEl.innerHTML='';
+ attempts[qz.id]=attempts[qz.id]||{tries:0,firstTry:null,answered:false};
+ log('checkpoint-shown',qz.id+': '+qz.q.replace(/<[^>]+>/g,''));
+ qz.options.forEach((o,idx)=>{
+   const b=document.createElement('button'); b.className='opt'; b.textContent=o.t;
+   b.onclick=()=>onAnswer(qz,o,b);
+   optsEl.appendChild(b);
+ });
+}
+function onAnswer(qz,o,btn){
+ const a=attempts[qz.id]; if(a.answered) return;
+ a.tries++;
+ if(a.firstTry===null) a.firstTry=o.correct; // first attempt outcome
+ if(o.correct){
+   a.answered=true; btn.classList.add('right'); reward(); setBg(null,true); renderMastery();
+   feedbackEl.className='good'; feedbackEl.style.display='block';
+   feedbackEl.innerHTML=`<span class="who">Examiner ✓</span>${o.fb}`;
+   log('answer','✓ correct on try '+a.tries+' ('+qz.id+')',{firstTry:a.firstTry});
+   advanceEl.style.display='block'; advanceEl.innerHTML='click / <b>space</b> to continue ▸';
+   quizEl.appendChild(advanceEl);
+ } else {
+   btn.classList.add('wrong'); btn.disabled=true;
+   feedbackEl.className=''; feedbackEl.style.display='block';
+   feedbackEl.innerHTML=`<span class="who">Examiner ✗</span>${o.fb}`;
+   log('answer','✗ wrong ('+qz.id+', try '+a.tries+') — corrective feedback shown',null,true);
+ }
+}
+
+function render(){
+ if(i>=SCRIPT.length) return finish();
+ const n=SCRIPT[i];
+ if(n.quiz) return showQuiz(n.quiz);
+ if(n.end) return finish();
+ showLine(n);
+}
+function advance(){
+ if(quizEl.style.display==='flex'){
+   const qz=SCRIPT[i].quiz; const a=attempts[qz.id];
+   if(a&&a.answered){ i++; advanceEl.parentNode!==boxEl&&boxEl.appendChild(advanceEl); render(); }
+   return; // unanswered → must answer
+ }
+ if(finishTyping()) return;
+ i++; render();
+}
+function finish(){
+ const s=stats();
+ endEl.style.display='grid'; boxEl.style.display='none'; advanceEl.style.display='none'; quizEl.style.display='none'; nameEl.className='';
+ document.getElementById('stats').innerHTML=
+   `checkpoints passed&nbsp;&nbsp;<span class="n">${s.passed}/${s.checkpoints}</span><br>`+
+   `first-try correct&nbsp;&nbsp;<span class="n">${s.firstTryCorrect}/${s.checkpoints}</span><br>`+
+   `total attempts&nbsp;&nbsp;<span class="n">${s.totalAttempts}</span>`;
+ log('end','checkpoint complete',s);
+}
+stage.addEventListener('click',e=>{ if(e.target.closest('.opt')||e.target.closest('button')) return; advance(); });
+document.addEventListener('keydown',e=>{ if(e.code==='Space'||e.code==='Enter'){e.preventDefault();advance();} });
+document.getElementById('replay').onclick=()=>{ i=0; for(const k in attempts) delete attempts[k]; endEl.style.display='none'; boxEl.appendChild(advanceEl); renderMastery(); log('replay','restart'); render(); };
+
+renderMastery(); log('boot','spike 002 learning loop loaded'); render();
+</script>
+</body>
+</html>

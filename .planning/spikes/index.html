@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explorations · ENGRAM // KIT — Explorations</title>
+<style>
+:root{--ink:#0b0b0d;--paper:#f3f1ec;--paper-2:#e7e4dc;--signal:#00e0a4;--signal-deep:#06a079;
+ --stale:#d98a3d;--smoke:#8a8a86;--hairline:rgba(11,11,13,.14);
+ --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+ font-size:1.02rem;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:2.4rem 1.4rem 6rem}
+a{color:var(--signal-deep);text-decoration:none;border-bottom:1px solid rgba(6,160,121,.35)}
+a:hover{background:var(--signal);color:var(--ink);border-bottom-color:var(--signal)}
+.topbar{position:sticky;top:0;z-index:5;background:var(--ink);color:var(--paper);
+ display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.4rem;
+ font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.topbar a{color:var(--smoke);border:0}.topbar a:hover{background:transparent;color:var(--signal)}
+.topbar .mark{color:var(--paper);font-weight:700;letter-spacing:.04em}.topbar .mark b{color:var(--signal)}
+h1{font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-.02em;line-height:1.05;margin:.4rem 0 1rem}
+h2{font-size:1.45rem;letter-spacing:-.01em;margin:2.4rem 0 .8rem;padding-top:1rem;border-top:1px solid var(--hairline)}
+h3{font-size:1.12rem;margin:1.6rem 0 .5rem}h4{font-size:1rem;margin:1.2rem 0 .4rem;color:var(--smoke)}
+p{margin:.7rem 0}ul,ol{margin:.6rem 0 .6rem 1.3rem;padding:0}li{margin:.3rem 0}
+code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:.1rem .35rem;border-radius:2px}
+pre{background:var(--ink);color:var(--paper);padding:1rem 1.1rem;overflow:auto;border-radius:3px;margin:1rem 0;
+ border-left:3px solid var(--signal)}
+pre code{background:none;color:var(--paper);padding:0;font-size:.82rem;line-height:1.5}
+blockquote{margin:1rem 0;padding:.4rem 1rem;border-left:3px solid var(--smoke);color:var(--smoke);font-style:italic}
+hr{border:0;border-top:1px solid var(--hairline);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--hairline);vertical-align:top}
+th{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke);font-weight:700}
+tr:hover td{background:rgba(0,224,164,.06)}
+em{font-style:italic}strong{font-weight:700}
+.label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1.4rem}
+.chip{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;padding:.25rem .6rem;border:1px solid var(--hairline);border-radius:999px;color:var(--smoke)}
+.chip.v{border-color:var(--signal);color:var(--signal-deep);font-weight:700}
+.back{display:inline-block;margin-bottom:1rem;font-family:var(--mono);font-size:.8rem}
+/* hub cards */
+.lead{font-size:1.15rem;color:#33332f;max-width:62ch}
+.cards{display:grid;gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin:2rem 0}
+.card{background:var(--paper);padding:1.4rem 1.3rem;display:grid;gap:.5rem}
+.card .num{font-family:var(--mono);font-size:.72rem;color:var(--smoke);letter-spacing:.1em}
+.card h3{margin:0;font-size:1.35rem}
+.card .val{font-size:.78rem;line-height:1.5;color:#3a3a36}
+.card .links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+.card .links a{font-family:var(--mono);font-size:.78rem;border:1px solid var(--hairline);
+ padding:.4rem .8rem;border-radius:3px;color:var(--ink)}
+.card .links a.demo{background:var(--signal);border-color:var(--signal);font-weight:700}
+.card .links a.demo:hover{background:var(--ink);color:var(--signal)}
+.card .links a:hover{background:var(--ink);color:var(--paper)}
+.footlinks{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.82rem}
+</style></head><body>
+<div class="topbar"><span class="mark">ENGRAM<b>//</b>KIT</span><span>EXPLORATIONS · INTERNAL</span></div>
+<div class="wrap">
+
+<span class="label">ENGRAM // KIT · internal</span>
+<h1>Explorations &amp; Spikes</h1>
+<p class="lead">Experiential spikes probing a <strong>visual-novel learning game</strong> built around the
+ENGRAM papers (ALMA &amp; AMA-Bench). Each spike is a runnable, zero-dependency demo plus a writeup.
+Open a <em>play demo</em> to feel it; read the <em>writeup</em> for the investigation and verdict.</p>
+
+<div class="cards">
+  <div class="card" id="001-vn-engine-feel">
+    <span class="num">SPIKE 001 · VALIDATED</span>
+    <h3>vn engine feel</h3>
+    <p class="val">Given the existing manga panels + ENGRAM//KIT brand, when a player clicks through a VN scene (panel background, name plate, typewriter dialogue, click-to-advance, branching choice), then it feels like a real visual novel and runs on the static site with zero build.</p>
+    <div class="links">
+      <a class="demo" href="001-vn-engine-feel/index.html">▶ play demo</a>
+      <a href="001-vn-engine-feel/README.html">read writeup</a>
+      <a href="001-vn-engine-feel/">source files</a>
+    </div>
+  </div>
+  <div class="card" id="002-learning-loop">
+    <span class="num">SPIKE 002 · VALIDATED</span>
+    <h3>learning loop</h3>
+    <p class="val">Given a scene about a paper concept, when the player hits a comprehension checkpoint (Examiner quiz with in-character corrective feedback + retry), then the interaction reinforces the idea better than passive reading — the reason a learning VN beats the flipbook.</p>
+    <div class="links">
+      <a class="demo" href="002-learning-loop/index.html">▶ play demo</a>
+      <a href="002-learning-loop/README.html">read writeup</a>
+      <a href="002-learning-loop/">source files</a>
+    </div>
+  </div>
+  <div class="card" id="003-dialogue-pipeline">
+    <span class="num">SPIKE 003 · VALIDATED</span>
+    <h3>dialogue pipeline</h3>
+    <p class="val">Given the existing documentation/manga/*/page-NN.md lettering blocks, when parsed, then a structured VN script (scene → speaker + text + panel background) is auto-extractable, so VN authoring isn't from scratch.</p>
+    <div class="links">
+      <a class="demo" href="003-dialogue-pipeline/play.html">▶ play demo</a>
+      <a href="003-dialogue-pipeline/README.html">read writeup</a>
+      <a href="003-dialogue-pipeline/">source files</a>
+    </div>
+  </div></div>
+
+<h2>Project docs</h2>
+<div class="footlinks">
+  <a href="MANIFEST.html">Manifest →</a><a href="CONVENTIONS.html">Conventions →</a>
+  <a href="../../README.md">repo README →</a>
+</div>
+
+</div></body></html>

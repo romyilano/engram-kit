@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vn-engine-feel · ENGRAM // KIT — Explorations</title>
+<style>
+:root{--ink:#0b0b0d;--paper:#f3f1ec;--paper-2:#e7e4dc;--signal:#00e0a4;--signal-deep:#06a079;
+ --stale:#d98a3d;--smoke:#8a8a86;--hairline:rgba(11,11,13,.14);
+ --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+ font-size:1.02rem;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:2.4rem 1.4rem 6rem}
+a{color:var(--signal-deep);text-decoration:none;border-bottom:1px solid rgba(6,160,121,.35)}
+a:hover{background:var(--signal);color:var(--ink);border-bottom-color:var(--signal)}
+.topbar{position:sticky;top:0;z-index:5;background:var(--ink);color:var(--paper);
+ display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.4rem;
+ font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.topbar a{color:var(--smoke);border:0}.topbar a:hover{background:transparent;color:var(--signal)}
+.topbar .mark{color:var(--paper);font-weight:700;letter-spacing:.04em}.topbar .mark b{color:var(--signal)}
+h1{font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-.02em;line-height:1.05;margin:.4rem 0 1rem}
+h2{font-size:1.45rem;letter-spacing:-.01em;margin:2.4rem 0 .8rem;padding-top:1rem;border-top:1px solid var(--hairline)}
+h3{font-size:1.12rem;margin:1.6rem 0 .5rem}h4{font-size:1rem;margin:1.2rem 0 .4rem;color:var(--smoke)}
+p{margin:.7rem 0}ul,ol{margin:.6rem 0 .6rem 1.3rem;padding:0}li{margin:.3rem 0}
+code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:.1rem .35rem;border-radius:2px}
+pre{background:var(--ink);color:var(--paper);padding:1rem 1.1rem;overflow:auto;border-radius:3px;margin:1rem 0;
+ border-left:3px solid var(--signal)}
+pre code{background:none;color:var(--paper);padding:0;font-size:.82rem;line-height:1.5}
+blockquote{margin:1rem 0;padding:.4rem 1rem;border-left:3px solid var(--smoke);color:var(--smoke);font-style:italic}
+hr{border:0;border-top:1px solid var(--hairline);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--hairline);vertical-align:top}
+th{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke);font-weight:700}
+tr:hover td{background:rgba(0,224,164,.06)}
+em{font-style:italic}strong{font-weight:700}
+.label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1.4rem}
+.chip{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;padding:.25rem .6rem;border:1px solid var(--hairline);border-radius:999px;color:var(--smoke)}
+.chip.v{border-color:var(--signal);color:var(--signal-deep);font-weight:700}
+.back{display:inline-block;margin-bottom:1rem;font-family:var(--mono);font-size:.8rem}
+/* hub cards */
+.lead{font-size:1.15rem;color:#33332f;max-width:62ch}
+.cards{display:grid;gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin:2rem 0}
+.card{background:var(--paper);padding:1.4rem 1.3rem;display:grid;gap:.5rem}
+.card .num{font-family:var(--mono);font-size:.72rem;color:var(--smoke);letter-spacing:.1em}
+.card h3{margin:0;font-size:1.35rem}
+.card .val{font-size:.78rem;line-height:1.5;color:#3a3a36}
+.card .links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+.card .links a{font-family:var(--mono);font-size:.78rem;border:1px solid var(--hairline);
+ padding:.4rem .8rem;border-radius:3px;color:var(--ink)}
+.card .links a.demo{background:var(--signal);border-color:var(--signal);font-weight:700}
+.card .links a.demo:hover{background:var(--ink);color:var(--signal)}
+.card .links a:hover{background:var(--ink);color:var(--paper)}
+.footlinks{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.82rem}
+</style></head><body>
+<div class="topbar"><span class="mark">ENGRAM<b>//</b>KIT</span><span>EXPLORATIONS · INTERNAL</span></div>
+<div class="wrap"><a class="back" href="../index.html">← all explorations</a>
+<div class="meta"><span class="chip">SPIKE 001</span><span class="chip">standard</span><span class="chip v">VALIDATED</span><span class="chip">vn, ui, brand, static-site</span></div><h1>Spike 001: VN Engine Feel</h1>
+<h2>What This Validates</h2>
+<p>Given the existing ALMA manga panels and the ENGRAM // KIT brand, <strong>when</strong> a player clicks through a VN scene — panel background, character name plate, typewriter dialogue, click/space to advance, and a branching choice that changes what happens next — <strong>then</strong> it feels like a real visual novel and runs on the <code>docs/</code> static site with <strong>zero dependencies and no build step</strong>.</p>
+<h2>Research</h2>
+<h3>Build vs. buy — VN engines surveyed</h3>
+<table><thead><tr><th>Approach</th><th>Tool</th><th>Pros</th><th>Cons</th><th>Status</th></tr></thead><tbody><tr><td>Hand-roll</td><td>vanilla HTML/JS</td><td>Zero deps, opens via <code>file://</code>, full ENGRAM//KIT brand control, reuses panels + flipbook CSS, ~250 lines total</td><td>We write the scene runner (typewriter, branching, choices)</td><td><strong>Chosen</strong></td></tr><tr><td>Web VN engine</td><td><a href="https://monogatari.io/">Monogatari</a></td><td>Save/load, scene DSL, menus, character system built-in</td><td>npm/build + bundle, restyle to brand, heavy vs a flipbook-adjacent page</td><td>Rejected — overweight for a static <code>docs/</code> add-on</td></tr><tr><td>Hypertext</td><td><a href="https://twinery.org/">Twine/Harlowe</a></td><td>Great for branching prose, no-code authoring</td><td>Not panel/portrait-first, awkward to brand, exports its own runtime</td><td>Rejected — wrong shape (prose, not panel-VN)</td></tr><tr><td>Native VN</td><td><a href="https://www.renpy.org/">Ren'Py</a> (web export)</td><td>Industry-standard VN features</td><td>Python→web export is a heavy artifact, not a <code>docs/</code> page; overkill</td><td>Rejected — not web-native</td></tr></tbody></table>
+<p><strong>Chosen approach:</strong> hand-rolled vanilla JS. The deciding constraints are the existing zero-build static site, the need for exact brand control (recall-green, Helvetica, mono labels), and that the hard assets (panels, dialogue) already exist in-repo. A VN runner is a small amount of code; an engine is a large amount of integration. Locked as a Requirement in MANIFEST.md.</p>
+<h2>How to Run</h2>
+<p>Open the file directly in a browser — no server needed:</p>
+<pre><code>open .planning/spikes/001-vn-engine-feel/index.html</code></pre>
+<p>Click or press <strong>space/enter</strong> to advance. First click finishes the typewriter; second advances. At the branch, pick <strong>A</strong> or <strong>B</strong> — the next two lines differ, then both paths converge. Top-right: <strong>log</strong> shows the forensic event stream; <strong>export</strong> downloads <code>spike001-log.json</code>.</p>
+<h2>What to Expect</h2>
+<ul>
+<li>A 16:9 letterboxed stage with an ALMA panel as the (desaturated) background.</li>
+<li>A recall-green skewed name plate (ENGY / SENSEI) or a quiet uppercase NARRATION label.</li>
+<li>Dialogue typed out character-by-character with a blinking green caret; <code>&amp;lt;em&amp;gt;</code> words render green.</li>
+<li>A branch ("How should we give Engy memory?") with two styled choices that change Sensei's reply.</li>
+<li>"Recall" beats warm the background to full color (the <code>lit</code> flag) on the it-worked lines.</li>
+<li>An end card with Replay.</li>
+</ul>
+<h2>Observability</h2>
+<p>Forensic log layer: every <code>boot / bg / line / choice-shown / choice / replay / end / export</code> event is timestamped (seconds since load). The <strong>export</strong> button downloads a JSON with a summary (event count, duration, per-category counts) + the full event list — so a playthrough is reconstructable without watching over the user's shoulder.</p>
+<h2>Investigation Trail</h2>
+<ol>
+<li><strong>First cut</strong> — scenes as a flat array of <code>{bg, speaker, text}</code>; typewriter via <code>setTimeout</code> per character. Felt right immediately; the panels carry the production value.</li>
+<li><strong>Typewriter vs. markup</strong> — naive per-character typing split <code>&amp;lt;em&amp;gt;</code> tags mid-tag and broke the green emphasis. Fixed by tokenizing on <code>/(&amp;lt;[^&amp;gt;]+&amp;gt;)/</code> and emitting whole tags in one step so markup stays intact while text reveals char-by-char.</li>
+<li><strong>Branching</strong> — added <code>{choice}</code>, <code>{tag}</code>, <code>{goto}</code> nodes. <strong>Bug caught by simulation before any browser test:</strong> <code>findTag</code> originally required a node to have <code>bg||s||end</code>, so the bare <code>{tag:'converge'}</code> merge marker returned <code>-1</code> and the handcraft branch's <code>{goto:'converge'}</code> would crash on <code>SCRIPT[-1]</code>. Relaxed <code>findTag</code> to match the tag alone; the bare marker is then skipped by the existing marker-advance guard in <code>render()</code>.</li>
+<li><strong>Headless branch check</strong> — re-implemented the navigation in Node over the same script shape and played both choices with a 100-step infinite-loop guard. Both terminate and converge:</li>
+<ul>
+<li><code>HANDCRAFT → panel 3 → merge → panel 6 → panel 7 → END</code></li>
+<li><code>META → panel 4 → merge → panel 6 → panel 7 → END</code></li>
+</ul>
+</ol>
+<h2>Results</h2>
+<p><strong>Verdict: VALIDATED</strong> (logic, paths, and branching verified headlessly; final "feel" is a human playtest — open the file).</p>
+<ul>
+<li>A complete, branded, branching VN scene is <strong>~250 lines of one HTML file, zero dependencies</strong>, and opens with <code>file://</code>. This comfortably fits alongside the existing <code>docs/</code> flipbook.</li>
+<li>The existing panel PNGs do the heavy visual lifting; the engine only needs dialogue chrome.</li>
+<li>Branching + convergence works and is cheap to author (tag/goto markers in a flat array).</li>
+<li><strong>Surprise / signal:</strong> the desaturate-at-rest, warm-on-recall treatment (reused straight from the brand's "near-grayscale → full tone on hover" rule) maps perfectly onto VN emotional beats — the background literally lights up when Engy remembers. That's a brand-native learning cue, free.</li>
+<li><strong>Carries into 002:</strong> the <code>{choice}</code> node is already the seam where a <em>comprehension checkpoint</em> (not just a flavor branch) plugs in. <strong>Carries into 003:</strong> the flat <code>{bg, s, t}</code> script shape is exactly what a parser would emit from the <code>page-NN.md</code> lettering blocks.</li>
+</ul>
+</div></body></html>

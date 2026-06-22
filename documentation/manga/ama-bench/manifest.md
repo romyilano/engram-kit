@@ -34,12 +34,12 @@ Not gritty. Not neon. Not chibi. Not glossy 3D. Not photorealistic.
 
 | #  | Concept | Narrative purpose | Visual metaphor | Status |
 |----|---------|-------------------|-----------------|--------|
-| 01 | Long horizon | Setup: agents on a long task need memory | Engy setting out on a long winding road | prompt-ready |
-| 02 | Trajectories vs chit-chat | Real memory is a causal machine trajectory | Chatty bubble-world vs. road of machine-scrolls | prompt-ready |
-| 03 | Two subsets | Real-world (6 domains) + scalable synthetic | The Examiner's two stacks of question-cards | prompt-ready |
-| 04 | Four question types | What the benchmark measures | Four sealed cards: Temporal/State/Update/Summary | prompt-ready |
-| 05 | Why memory breaks | Similarity-only recall misses causal/objective info | Engy grabs a look-alike note and fails | prompt-ready |
-| 06 | AMA-Agent | Causality graph + tool-augmented retrieval wins | Notebook upgrades into a linked cause-effect graph | prompt-ready |
-| 07 | Big picture | Design is the bottleneck; ENGRAM tie-in | The road becomes ENGRAM's dated-state road | prompt-ready |
+| 01 | Long horizon | Setup: agents on a long task need memory | Engy setting out on a long winding road | rendered |
+| 02 | Trajectories vs chit-chat | Real memory is a causal machine trajectory | Chatty bubble-world vs. road of machine-scrolls | rendered |
+| 03 | Two subsets | Real-world (6 domains) + scalable synthetic | The Examiner's two stacks of question-cards | rendered |
+| 04 | Four question types | What the benchmark measures | Four sealed cards: Temporal/State/Update/Summary | rendered |
+| 05 | Why memory breaks | Similarity-only recall misses causal/objective info | Engy grabs a look-alike note and fails | rendered |
+| 06 | AMA-Agent | Causality graph + tool-augmented retrieval wins | Notebook upgrades into a linked cause-effect graph | rendered |
+| 07 | Big picture | Design is the bottleneck; ENGRAM tie-in | The road becomes ENGRAM's dated-state road | rendered |
 
-**Total pages:** 7. Panel art lives in `panels/amabench_pageNN.png` (placeholders until generated).
+**Total pages:** 7. Panel art lives in `panels/amabench_pageNN.png`. All 7 pages rendered.

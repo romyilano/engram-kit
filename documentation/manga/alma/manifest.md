@@ -42,6 +42,6 @@ Not gritty. Not neon. Not chibi. Not glossy 3D. Not photorealistic.
 | 05 | Code as search space | Designs are code: schema + retrieval + update | Meta Agent writes Engy a new notebook in code | rendered |
 | 06 | The archive | Sample designs + logs to seed new ideas | A glowing wall of drawer-cards with gauges | rendered |
 | 07 | Results | Learned designs win across four worlds, cheaper | Four little worlds; Engy thrives with tailored memory | rendered |
-| 08 | Big picture | Self-improving memory, safely; ENGRAM tie-in | Engy + Sensei look ahead at a road of dated states | prompt-ready |
+| 08 | Big picture | Self-improving memory, safely; ENGRAM tie-in | Engy + Sensei look ahead at a road of dated states | rendered |
 
-**Total pages:** 8. Panel art lives in `panels/alma_pageNN.png`. Pages 01–07 rendered; page 08 still placeholder.
+**Total pages:** 8. Panel art lives in `panels/alma_pageNN.png`. All 8 pages rendered.

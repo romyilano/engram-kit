@@ -1,0 +1,636 @@
+{
+  "generatedFrom": "documentation/manga/**/page-NN.md",
+  "books": {
+    "alma": [
+      {
+        "page": "01",
+        "panel": "alma_page01.png",
+        "panelPath": "docs/manga/alma/panels/alma_page01.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Watch. Engy will solve this little maze."
+          },
+          {
+            "panel": 2,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Done! That was easy."
+          },
+          {
+            "panel": 3,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "But a model with no memory is <em>stateless</em> — afterwards, the notebook empties."
+          },
+          {
+            "panel": 4,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "...Have I seen this before?"
+          },
+          {
+            "panel": 5,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Why does it feel so hard <em>again</em>?"
+          },
+          {
+            "panel": 6,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "With no memory, every task starts from zero. You can't keep what you can't remember."
+          }
+        ]
+      },
+      {
+        "page": "02",
+        "panel": "alma_page02.png",
+        "panelPath": "docs/manga/alma/panels/alma_page02.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "So we give Engy a <em>memory module</em> — a place to keep and reuse what it learns."
+          },
+          {
+            "panel": 2,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Now the note survives. Stored experience can be reused."
+          },
+          {
+            "panel": 3,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Wait — I've done something like this before..."
+          },
+          {
+            "panel": 4,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Faster this time! Memory helps."
+          },
+          {
+            "panel": 5,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "It does. But look closely at the <em>box</em> itself..."
+          },
+          {
+            "panel": 6,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Who designed these slots — what to keep, where to file it, what to forget?"
+          }
+        ]
+      },
+      {
+        "page": "03",
+        "panel": "alma_page03.png",
+        "panelPath": "docs/manga/alma/panels/alma_page03.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "For years, <em>we</em> drew the memory design by hand — what to store, how to fetch it, when to update."
+          },
+          {
+            "panel": 2,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Hand-crafted for one task, it fits beautifully."
+          },
+          {
+            "panel": 3,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "This world is... different. Nothing lines up."
+          },
+          {
+            "panel": 4,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "A <em>fixed</em> design can't adapt to new, changing tasks."
+          },
+          {
+            "panel": 5,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Diverse, shifting tasks each want a different memory. One hand-drawn shape can't serve them all."
+          },
+          {
+            "panel": 6,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "So... what if the design didn't have to be drawn by hand?"
+          }
+        ]
+      },
+      {
+        "page": "04",
+        "panel": "alma_page04.png",
+        "panelPath": "docs/manga/alma/panels/alma_page04.png",
+        "lines": [
+          {
+            "panel": 2,
+            "speaker": "metaagent",
+            "label": "Meta Agent",
+            "text": "This old design only scored 0.3. Why?"
+          },
+          {
+            "panel": 3,
+            "speaker": "metaagent",
+            "label": "Meta Agent",
+            "text": "What if we change how it retrieves and updates?"
+          },
+          {
+            "panel": 6,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Try it on a real task: 0.3 → 0.4."
+          },
+          {
+            "panel": 7,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Keep the result. Sample again. This open-ended loop never stops improving."
+          }
+        ]
+      },
+      {
+        "page": "05",
+        "panel": "alma_page05.png",
+        "panelPath": "docs/manga/alma/panels/alma_page05.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "metaagent",
+            "label": "Meta Agent",
+            "text": "A memory design is just... code."
+          },
+          {
+            "panel": 3,
+            "speaker": "metaagent",
+            "label": "Meta Agent",
+            "text": "A list? A database? A graph? Code can build any of them."
+          },
+          {
+            "panel": 4,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Install the new design straight into Engy's memory."
+          },
+          {
+            "panel": 5,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "This shape suits <em>this</em> task!"
+          },
+          {
+            "panel": 6,
+            "speaker": "metaagent",
+            "label": "Meta Agent",
+            "text": "And the space of possible memories is endless."
+          }
+        ]
+      },
+      {
+        "page": "06",
+        "panel": "alma_page06.png",
+        "panelPath": "docs/manga/alma/panels/alma_page06.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Every design ever tried is kept here — with its score."
+          },
+          {
+            "panel": 2,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "0.2... 0.4... 0.7 — the archive remembers what worked."
+          },
+          {
+            "panel": 3,
+            "speaker": "metaagent",
+            "label": "Meta Agent",
+            "text": "Start from a design that already did well."
+          },
+          {
+            "panel": 4,
+            "speaker": "metaagent",
+            "label": "Meta Agent",
+            "text": "...then make it better."
+          },
+          {
+            "panel": 5,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "File the result back. Good designs seed even better ones."
+          },
+          {
+            "panel": 6,
+            "speaker": "metaagent",
+            "label": "Meta Agent",
+            "text": "This is open-ended search — it compounds. It never has to stop."
+          }
+        ]
+      },
+      {
+        "page": "07",
+        "panel": "alma_page07.png",
+        "panelPath": "docs/manga/alma/panels/alma_page07.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Four very different worlds: ALFWorld · TextWorld · Baba Is AI · MiniHack."
+          },
+          {
+            "panel": 2,
+            "speaker": "metaagent",
+            "label": "Meta Agent",
+            "text": "Each world, its own memory design."
+          },
+          {
+            "panel": 3,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "I'm actually learning from experience now!"
+          },
+          {
+            "panel": 4,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Across every benchmark, the <em>learned</em> designs beat the hand-crafted ones."
+          },
+          {
+            "panel": 5,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "And they cost less to run."
+          },
+          {
+            "panel": 6,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Better memory — discovered, not hand-drawn."
+          }
+        ]
+      },
+      {
+        "page": "08",
+        "panel": "alma_page08.png",
+        "panelPath": "docs/manga/alma/panels/alma_page08.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "My memory isn't fixed anymore. It can grow."
+          },
+          {
+            "panel": 2,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "A step toward AI that learns to be a continual learner — designing its own memory."
+          },
+          {
+            "panel": 3,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Powerful. Which is exactly why it must be built and deployed <em>safely</em>."
+          },
+          {
+            "panel": 4,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "And this is the road ENGRAM walks: dated states, arriving in order."
+          },
+          {
+            "panel": 5,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Read only up to today. Write it down. Answer — without peeking ahead."
+          },
+          {
+            "panel": 6,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Remember the right things, at the right time. That's the whole challenge."
+          }
+        ]
+      }
+    ],
+    "ama-bench": [
+      {
+        "page": "01",
+        "panel": "amabench_page01.png",
+        "panelPath": "docs/manga/ama-bench/panels/amabench_page01.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Today's agents don't do one step. They walk long roads — many steps, far from where they began."
+          },
+          {
+            "panel": 2,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Find, open, read, fix, check, report... that's a lot to hold onto."
+          },
+          {
+            "panel": 3,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Each step becomes a note in memory."
+          },
+          {
+            "panel": 4,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "The start feels so far away now..."
+          },
+          {
+            "panel": 5,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Will I still remember how this began?"
+          },
+          {
+            "panel": 6,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "On a long road, <em>memory</em> is what keeps you coherent. So — how do we test it?"
+          }
+        ]
+      },
+      {
+        "page": "02",
+        "panel": "amabench_page02.png",
+        "panelPath": "docs/manga/ama-bench/panels/amabench_page02.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Old memory tests look like <em>conversations</em>."
+          },
+          {
+            "panel": 2,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "But an agent's real memory is a <em>trajectory</em> of states, actions, observations, tool outputs."
+          },
+          {
+            "panel": 3,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "JSON, tables, code — machine-generated, not free-form chatter."
+          },
+          {
+            "panel": 4,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "And it's <em>causal</em>: each action changes the world, which shapes what comes next."
+          },
+          {
+            "panel": 5,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Dense and objective — no small talk to wade through."
+          },
+          {
+            "panel": 6,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "So a fair test must use trajectories. That's what AMA-Bench does."
+          }
+        ]
+      },
+      {
+        "page": "03",
+        "panel": "amabench_page03.png",
+        "panelPath": "docs/manga/ama-bench/panels/amabench_page03.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "examiner",
+            "label": "Examiner",
+            "text": "AMA-Bench has two halves."
+          },
+          {
+            "panel": 2,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Real-world: six domains — Web, open-world QA, Text2SQL, software engineering, gaming, embodied AI."
+          },
+          {
+            "panel": 3,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Real trajectories, with questions written and checked by experts."
+          },
+          {
+            "panel": 4,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Synthetic: rule-generated tasks in programmatic environments."
+          },
+          {
+            "panel": 5,
+            "speaker": "examiner",
+            "label": "Examiner",
+            "text": "And synthetic tasks scale to <em>any</em> horizon length."
+          },
+          {
+            "panel": 6,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Realistic <em>and</em> scalable — that's the design."
+          }
+        ]
+      },
+      {
+        "page": "04",
+        "panel": "amabench_page04.png",
+        "panelPath": "docs/manga/ama-bench/panels/amabench_page04.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "examiner",
+            "label": "Examiner",
+            "text": "I ask four kinds of question."
+          },
+          {
+            "panel": 2,
+            "speaker": "examiner",
+            "label": "Examiner",
+            "text": "<em>Temporal</em> — what happened, and in what order?"
+          },
+          {
+            "panel": 3,
+            "speaker": "examiner",
+            "label": "Examiner",
+            "text": "<em>State dependency</em> — given what you did before, what's true now?"
+          },
+          {
+            "panel": 4,
+            "speaker": "examiner",
+            "label": "Examiner",
+            "text": "<em>Memory updating</em> — the value changed. What is it <em>now</em>?"
+          },
+          {
+            "panel": 5,
+            "speaker": "examiner",
+            "label": "Examiner",
+            "text": "<em>Summarization</em> — distill the whole journey, faithfully."
+          },
+          {
+            "panel": 6,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Four ways for my memory to be tested... or to fail."
+          }
+        ]
+      },
+      {
+        "page": "05",
+        "panel": "amabench_page05.png",
+        "panelPath": "docs/manga/ama-bench/panels/amabench_page05.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "examiner",
+            "label": "Examiner",
+            "text": "Why is the gate open now?"
+          },
+          {
+            "panel": 2,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Similarity search grabs the note that <em>looks</em> alike — and misses the one that actually <em>caused</em> it."
+          },
+          {
+            "panel": 3,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "Lossy compression had already thrown away the exact detail."
+          },
+          {
+            "panel": 4,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Um... it was always open?\" (wrong) — Examiner: \"Incorrect."
+          },
+          {
+            "panel": 5,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Even the best models reach only ~72%. Many memory systems do <em>worse</em> than just keeping everything in context."
+          },
+          {
+            "panel": 6,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "The model isn't the weak link. The <em>memory design</em> is — it loses the causal, objective facts."
+          }
+        ]
+      },
+      {
+        "page": "06",
+        "panel": "amabench_page06.png",
+        "panelPath": "docs/manga/ama-bench/panels/amabench_page06.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "What if memory kept the <em>causes</em>, not just look-alike notes?"
+          },
+          {
+            "panel": 2,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "AMA-Agent builds a <em>causality graph</em>: action → state change → observation."
+          },
+          {
+            "panel": 3,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "And I can use a <em>tool</em> to fetch the exact node — by following the cause, not the resemblance."
+          },
+          {
+            "panel": 4,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "The gate is open <em>because</em> I unlocked it three steps back.\" — Examiner: \"Correct."
+          },
+          {
+            "panel": 5,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "57.22% — eleven points over the best baseline."
+          },
+          {
+            "panel": 6,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Keep the causes. Retrieve with tools. <em>That's</em> the difference."
+          }
+        ]
+      },
+      {
+        "page": "07",
+        "panel": "amabench_page07.png",
+        "panelPath": "docs/manga/ama-bench/panels/amabench_page07.png",
+        "lines": [
+          {
+            "panel": 1,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "The lesson: it's not the size of the model. It's the <em>design</em> of the memory."
+          },
+          {
+            "panel": 2,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Keep the causes, retrieve well — design is everything."
+          },
+          {
+            "panel": 3,
+            "speaker": "narrator",
+            "label": "(caption)",
+            "text": "And there's a challenge built on exactly this..."
+          },
+          {
+            "panel": 4,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "ENGRAM: read the dated states in order — never peek at tomorrow."
+          },
+          {
+            "panel": 5,
+            "speaker": "engy",
+            "label": "Engy",
+            "text": "Is this fact current? stale? superseded? uncertain? — and here's my evidence."
+          },
+          {
+            "panel": 6,
+            "speaker": "sensei",
+            "label": "Sensei",
+            "text": "Measure memory honestly. Then build one worth measuring. That's ENGRAM."
+          }
+        ]
+      }
+    ]
+  }
+}

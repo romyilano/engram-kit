@@ -27,4 +27,4 @@ Design decisions locked in during spiking. Non-negotiable for the real build.
 |---|------|------|-----------|---------|------|
 | 001 | vn-engine-feel | standard | Vanilla-JS VN scene (panel bg, typewriter dialogue, click-advance, branching choice) feels like a real VN and fits the static site, zero build | ✓ VALIDATED | vn, ui, brand, static-site |
 | 002 | learning-loop | standard | Comprehension checkpoints with in-character corrective feedback reinforce the paper concept better than passive reading | ✓ VALIDATED | vn, pedagogy, quiz, learning |
-| 003 | dialogue-pipeline | standard | Existing `page-NN.md` "Panel N — Speaker: line" blocks auto-parse into a structured VN script, so authoring isn't from scratch | PENDING | pipeline, parsing, content, authoring |
+| 003 | dialogue-pipeline | standard | Existing `page-NN.md` "Panel N — Speaker: line" blocks auto-parse into a structured VN script, so authoring isn't from scratch | ✓ VALIDATED | pipeline, parsing, content, authoring |
